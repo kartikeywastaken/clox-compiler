@@ -4,6 +4,8 @@
 #include <stdbool.h>
 #include <stddef.h>
 #include <stdint.h>
+#include "value.h"
+#include "value.c"
 
 typedef enum {
   OP_RETURN,
@@ -11,6 +13,7 @@ typedef enum {
 
 typedef struct {
   uint8_t* code;
+  ValueArray constants;
   int count;
   int capacity;
 } Chunk;
