@@ -8,11 +8,13 @@
 #include "value.c"
 
 typedef enum {
+  OP_CONSTANT,
   OP_RETURN,
 } OpCode;
 
 typedef struct {
   uint8_t* code;
+  int* lines;
   ValueArray constants;
   int count;
   int capacity;
@@ -20,6 +22,8 @@ typedef struct {
 
 void initChunk(Chunk* chunk);
 void freeChunk(Chunk* chunk);
-void writeChunk(Chunk* chunk, uint8_t byte);
+void writeChunk(Chunk* chunk, uint8_t byte, int line);
+int addConstant(Chunk* chunk, Value value);
+
 
 #endif
