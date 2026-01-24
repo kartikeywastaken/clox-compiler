@@ -5,6 +5,7 @@
 
 typedef struct {
     Chunk* chunk;
+    uint8_t* ip; // basically the you are here marker stands for instruction pointer basically program counter pc
 } VM;
 
 typedef enum {
